@@ -81,37 +81,6 @@ function dwdownloads_api_connector(){
 	$sendActivationMailResult = $api->formsSendActivationMail($apiKey, '118394', $dwmail, $doidata);
 
 
-
-
-	//Add debug Logs
-
-	// Create post object
-	$my_post = array(
-	  'post_title'    => wp_strip_all_tags( 'Reveiver Add - ' . $dwcode ),
-	  'post_content'  => $reveiverAddResult,
-	  'post_status'   => 'publish',
-	  'post_type'   => 'cr-debug-log',
-	);
-	 
-	// Insert the post into the database
-	wp_insert_post( $my_post );
-
-
-	// Create post object
-	$my_post = array(
-	  'post_title'    => wp_strip_all_tags( 'Activation Mail - ' . $dwcode ),
-	  'post_content'  => $sendActivationMailResult,
-	  'post_status'   => 'publish',
-	  'post_type'   => 'cr-debug-log',
-	);
-	 
-	// Insert the post into the database
-	wp_insert_post( $my_post );
-
-
-
-
-
 }
 
 add_action('dwdownloads_after_mail_registration', 'dwdownloads_api_connector' );
