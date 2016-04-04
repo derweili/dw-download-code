@@ -2,7 +2,7 @@
 
 function dwdownload_new_mail_message( $output ){
 
-	$outputprefix = '<h3>Deine Mailadresse wurde gespeichert</h3>';
+	$outputprefix = '<h2>Deine Mailadresse wurde gespeichert</h3>';
 	
 	return $outputprefix . ' ' . $output;
 }

@@ -9,8 +9,13 @@ deine Mailadresse ein.*</h3>';
 
 	$outputprefix .= '<form action="' . get_permalink() . '" method="post" class="dwdownload mailform">
 						<input type="hidden" name="dwcode" value="' . $dwcode . '"/>
-						<input type="text" placeholder="Email" name="dwmail" required/>
-						<input type="submit" name="Absenden" />
+						<input id="dwnewsletter" type="checkbox" name="dwnewsletter" value="true"><label for="dwnewsletter">Newsletter erhalten</label>
+						<div class="input-group">
+							<input type="text" placeholder="Email" name="dwmail" required/>
+							<div class="input-group-button">
+								<input type="submit" name="Absenden" class="button" required/>
+							</div>
+						</div>
 					</forms>';
 	
 	return $outputprefix . ' ' .$output;

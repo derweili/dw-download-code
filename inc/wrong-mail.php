@@ -8,8 +8,12 @@ function dwdownload_wrong_mail_form($output){
 
 	$output .= '<form action="' . get_permalink() . '" method="post"  class="dwdownload codeform">
 					<input type="hidden" name="dwcode" value="' . $dwcode . '"/>
-					<input type="text" placeholder="Email" name="dwmail" required/>
-					<input type="submit" name="Absenden" />
+					<div class="input-group">
+						<input type="text" placeholder="Email" name="dwmail" required/>
+						<div class="input-group-button">
+							<input type="submit" name="Absenden" class="button" required/>
+						</div>
+					</div>
 				</forms>
 				';
 	return $outputprefix . ' ' . $output;

@@ -1,7 +1,7 @@
 <?php
 /**
- * @package Downloadcode
- * @version 1.6
+ * @package Download Code
+ * @version 1
  */
 /*
 Plugin Name: DW Download Code
@@ -22,6 +22,7 @@ require_once('inc/mailform.php');
 require_once('inc/wrong-mail.php');
 require_once('inc/invalide-code.php');
 require_once('inc/admin.php');
+require_once('inc/clever-reach-api-connector.php');
 
 
 function dwdownloads_codeblock( $content ){
@@ -69,7 +70,15 @@ function dwdownloads_codeblock( $content ){
 				//Code is expired, no email stored but new mail has been send
 				$output = apply_filters( 'dwcode_new_mail', $content );
 
+				$dwmail = $_POST["dwmail"];
+
+				$dwcodeid = $dwcode_object->ID;
+
+				do_action( 'dwdownloads_after_mail_registration' );
+
 				add_post_meta($dwcode_object->ID, 'dwdownloads_mail', $_POST["dwmail"], true);
+
+				
 
 
 				return $output;
